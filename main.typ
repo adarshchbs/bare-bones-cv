@@ -3,223 +3,160 @@
 
 #show link: set text(blue)
 
-#set page(
-  paper: "a4",
-  margin: (
-    top: 1.5cm,
-    bottom: 1cm,
-  )
-)
+#set page(paper: "a4", margin: (top: 1.5cm, bottom: 1cm, left: 1cm, right: 1cm))
 
 #show heading: h => [
-  #set text(
-    size: eval(settings.font.size.heading_large),
-    font: settings.font.general
-  )
+  #set text(size: eval(settings.font.size.heading_large), font: settings.font.general)
   #h
 ]
 
-#let sidebarSection = {[
-  #par(justify: true)[
+#let sidebarSection = {
+  [
+    #par(justify: true)[
+
+      #par[
+        #set text(size: eval(settings.font.size.heading_huge), font: settings.font.general)
+        *#configuration.contacts.name*
+      ]
+
+      #par[
+        #set text(size: eval(settings.font.size.heading), font: settings.font.minor_highlight, top-edge: 0pt)
+        #configuration.contacts.title
+      ]
+
+      #par[
+        #set text(size: eval(settings.font.size.contacts), font: settings.font.minor_highlight)
+
+        Email: #link("mailto:" + configuration.contacts.email) \
+        Phone: #link("tel:" + configuration.contacts.phone) \
+        LinkedIn: #link(configuration.contacts.linkedin.url)[#configuration.contacts.linkedin.displayText] \
+        GitHub: #link(configuration.contacts.github.url)[#configuration.contacts.github.displayText] \
+
+        #configuration.contacts.address
+      ]
+      // #line(length: 100%)
+    ]
+
+    = Summary
 
     #par[
-      #set text(
-        size: eval(settings.font.size.contacts),
-        font: settings.font.minor_highlight,
-      )
-
-      Email: #link("mailto:" + configuration.contacts.email) \
-      Phone: #link("tel:" + configuration.contacts.phone) \
-      LinkedIn: #link(configuration.contacts.linkedin.url)[#configuration.contacts.linkedin.displayText] \
-      GitHub: #link(configuration.contacts.github.url)[#configuration.contacts.github.displayText] \
-
-      #configuration.contacts.address
+      #set text(eval(settings.font.size.education_description), font: settings.font.minor_highlight, hyphenate: false)
+      #set par(justify: false)
+      Experienced data scientist with 4 years of expertise in applying NLP and machine learning to healthcare and consulting
+      challenges. Currently developing NLP models to curate cancer patients' medical histories for clinical trial design and
+      subject recruitment. Skilled in text mining, information extraction, and knowledge representation for analyzing complex,
+      unstructured medical data. Previous experience in financial modeling and risk analysis. Passionate about using
+      cutting-edge technologies to create positive societal impact. Effective communicator of complex technical concepts to
+      diverse stakeholders.
     ]
-    #line(length: 100%)
-  ]
 
-  = Summary
+    = Technical Skills
 
-  #par[
-    #set text(
-        eval(settings.font.size.education_description),
-        font: settings.font.minor_highlight,
-    )
-    An experienced *software engineer* with a confident grasp of *infrastructure* and *system design*, now seeking opportunities to excel in the realms of solution architecture.
-
-    Open to roles ranging from *software engineering* to *infrastructure*.
-  ]
-
-  = Education
-
-  #{
-    for place in configuration.education [
+    #{
+      for skill in configuration.skills [
         #par[
+          #set text(size: eval(settings.font.size.description))
           #set text(
-            size: eval(settings.font.size.heading),
-            font: settings.font.general
-          )
-            #{
-              if "to" in place and "from" in place [
-                #place.from
-                – #place.to \
-              ] else if "arbitrary_interval" in place [
-                #place.arbitrary_interval
-              ]
-            }
-            #link(place.place.link)[#place.place.name]
-        ]
-        #par[
-          #set text(
-            eval(settings.font.size.education_description),
+            // size: eval(settings.font.size.tags),
             font: settings.font.minor_highlight,
           )
-          #{
-            let description_items = ()
-            if "degree" in place and "major" in place [
-              #description_items.push(place.degree + " " + place.major)
-            ]
-            if "track" in place [
-              #description_items.push(place.track + " " + "track")
-            ]
-            if "note" in place [
-              #description_items.push(place.note)
-            ]
-            if "location" in place [
-              #description_items.push(place.location)
-            ]
-            description_items.join("\n")
-          }
+          *#skill.name*
+          #linebreak()
+          #skill.items.join(", ")
         ]
-    ]
-  }
-
-  = Skills
-
-  #{
-    for skill in configuration.skills [
-      #par[
-        #set text(
-          size: eval(settings.font.size.description),
-        )
-        #set text(
-          // size: eval(settings.font.size.tags),
-          font: settings.font.minor_highlight,
-        )
-        *#skill.name*
-        #linebreak()
-        #skill.items.join(" • ")
       ]
-    ]
-  }
-]}
+    }
 
-#let mainSection = {[
+    = Soft Skills
+    #{
+      for skill in configuration.soft_skills [
+        #par[
+          // #set par(leading: 2pt)
+          #set text(size: eval(settings.font.size.description))
+          #set text(
+            // size: eval(settings.font.size.tags),
+            font: settings.font.minor_highlight,
+          )
+          • #skill
 
-  // #par[
-  //   #set align(center)
-  //   #figure(
-  //     image("images/Kodak 20 Zanvoort Lumi.jpg", width: 6em),
-  //     placement: top,
-  //   )
-  // ]
-
-  #par[
-    #set text(
-      size: eval(settings.font.size.heading_huge),
-      font: settings.font.general,
-    )
-    *#configuration.contacts.name*
+        ]
+      ]
+    }
   ]
+}
 
-  #par[
-    #set text(
-      size: eval(settings.font.size.heading),
-      font: settings.font.minor_highlight,
-      top-edge: 0pt
-    )
-    #configuration.contacts.title
-  ]
+#let mainSection = {
+  [
 
-  = Experience
+    = Education
 
-  #{
-    for job in configuration.jobs [
-      #par(justify: false)[
-        #set text(
-          size: eval(settings.font.size.heading),
-          font: settings.font.general
-        )
+    #{
+      for place in configuration.education [
+        #par[
+          #set text(size: eval(settings.font.size.heading2), font: settings.font.general)
+          #set par(leading: 4pt)
+          #grid(
+            columns: (1fr, auto),
+            gutter: 1em,
+            [#[#place.degree, #place.major Major] \ #link(place.place.link)[#place.place.name]],
+            [ #place.from – #place.to \ Bangalore ],
+          )
+
+        ]
+      ]
+    }
+
+    = Experience
+
+    #{
+      for job in configuration.jobs [
+        #par(justify: false)[
+          #set text(size: eval(settings.font.size.heading), font: settings.font.general)
           *#job.position*
-          #link(job.company.link)[\@  #job.company.name] \
+          *\@ #job.company.name* \
           #job.from – #job.to
 
-      ]
-      #par(
-        justify: false,
-        leading: eval(settings.paragraph.leading)
-      )[
-        #set text(
-          size: eval(settings.font.size.description),
-          font: settings.font.general
-        )
-        #{
-          for point in job.description [
-            #h(0.5cm) • #point \
+        ]
+        #for task_desc in job.projects [
+          #par(justify: false, leading: eval(settings.paragraph.leading))[
+            #set text(size: eval(settings.font.size.description), font: settings.font.general)
+            *Task: #task_desc.task* \
+            #{
+              for point in task_desc.description [
+                • #point \
+              ]
+            }
+            *Tool Used*: #task_desc.tool_used \
           ]
-        }
-      ]
-      #par(
-        justify: true,
-        leading: eval(settings.paragraph.leading),
-      )[
-        #set text(
-          size: eval(settings.font.size.tags),
-          font: settings.font.minor_highlight
-        )
-        #{
-          let tag_line = job.tags.join(" • ")
-          tag_line
-        }
-      ]
-    ]
-  }
-
-
-
-  = Hackathons
-
-  #{
-    for hack in configuration.hackathons [
-      #par(
-        justify: true,
-        leading: eval(settings.paragraph.leading)
-      )[
-        #par[
-          #set text(
-            size: eval(settings.font.size.heading),
-            font: settings.font.general
-          )
-          - #hack.year #hack.from – #hack.to \
-            #link(hack.hackathon.link)[#hack.hackathon.name] – #link(hack.certificate_link)[Credential]
-        ]
-        #par[
-          #set text(
-            size: eval(settings.font.size.description),
-            font: settings.font.general
-          )
-          #hack.description
         ]
       ]
-    ]
-  }
-]}
+    }
+
+    = Open Source Projects
+
+    #{
+      for task_desc in configuration.open_source [
+        #par(justify: false, leading: eval(settings.paragraph.leading))[
+          #set text(size: eval(settings.font.size.description), font: settings.font.general)
+          #link("https://github.com/adarshchbs/pdf2md")[*#task_desc.task*] \
+          #{
+            for point in task_desc.description [
+              • #point \
+            ]
+          }
+          *Tool Used*: #task_desc.tool_used \
+        ]
+      ]
+    }
+  ]
+}
 
 #{
   grid(
     columns: (2fr, 5fr),
-    column-gutter: 3em,
+    column-gutter: 1em,
     sidebarSection,
+    // box(width: 0.05em, height: 100%, stroke: 1pt, fill: black),
     mainSection,
   )
 }

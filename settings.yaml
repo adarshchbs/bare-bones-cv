@@ -2,10 +2,11 @@ font:
   size:
     heading_huge: 19pt
     heading_large: 16pt
-    heading: 13pt
-    description: 9pt
+    heading: 12pt
+    heading2: 11pt
+    description: 9.5pt
     tags: 9pt
-    education_description: 9pt
+    education_description: 10pt
     contacts: 9pt
   general: "Helvetica Neue"
   minor_highlight: "Helvetica Neue"

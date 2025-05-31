@@ -1,139 +1,192 @@
 contacts:
-  name: John Doe
+  name: Adarsh Gupta
   title: Data Scientist
-  email: john.doe@email.com
-  phone: "+123 456 7890"
-  address: "123 Imaginary Street, Imaginary City, Imaginary Country"
-  nationality: Imaginarian
+  email: adarsh.ai@proton.me
+  phone: "+91 9451088136"
+  address: "Bengaluru, India"
+  nationality: Indian
   linkedin:
-    url: https://www.linkedin.com/in/mikhail-liamets/
-    displayText: mikhail-liamets
+    url: https://www.linkedin.com/in/adarshchbs/
+    displayText: adarshchbs
   github:
-    url: https://github.com/caffeinatedgaze/
-    displayText: caffeinatedgaze
+    url: https://github.com/adarshchbs/
+    displayText: adarshchbs
+
+education:
+  - place:
+      name: Indian Institute of Science 
+      link: "https://iisc.ac.in"
+    degree: "M.S."
+    major:
+      Physics
+    from: "2019"
+    to: "2020"
+  - place:
+      name: Indian Institute of Science
+      link: "https://iisc.ac.in"
+    degree: "B.S."
+    major:
+      Physics
+    from: "2015"
+    to: "2019"
 
 skills:
   - name: Programming Languages
     items:
       - Python
-      - Java
-      - C++
-      - JavaScript
-  - name: Software Development
-    items:
-      - Agile
-      - Scrum
-      - Design Patterns
-      - Git
-  - name: Data Analysis
-    items:
-      - Data Visualization
-      - Machine Learning
-      - Statistics
       - SQL
-  - name: Cloud Computing
+  - name: ML Skills
     items:
-      - AWS
-      - Azure
-      - Google Cloud
+      - LLM
+      - Deep Learning
+      - NLP
+      - Model Finetuning
+      - Computer Vision
+      - Data Visualization
+      - Statistics
+      - Mathematical Modelling
+      - Data Mining
+  - name: Library
+    items:
+      - PyTorch
+      - Scikit-learn
+      - FastAPI
+      - Polars
+      - OpenCV
+      - Scipy
+      - Streamlit
+      - PySpark
+      - Spacy
+      - NLTK
   - name: Database Management
     items:
       - MySQL
       - PostgreSQL
-      - MongoDB
-  - name: Web Development
+      - LanceDB
+      - Elasticsearch
+  - name: Tool/Platform
     items:
-      - HTML/CSS
-      - React
-      - Node.js
-      - Express.js
-      - Django
-
+      - MLFlow
+      - Jenkins
+      - AWS 
+      - Azure
+      - Databricks
+      - Git
+  
 jobs:
-  - position: Data Analyst
+  - position: NLP Data Scientist
     company:
-      name: Google
-      link: https://imaginaryanalytics.com/
-    description:
-      - Analyzed data to provide insights for clients.
-      - Developed data visualizations and reports for client presentations.
-      - Collaborated with cross-functional teams, including data scientists and engineers, to drive data-driven decision-making.
-      - Worked in close collaboration with interdisciplinary teams on a range of development initiatives.
-      - Conceived and executed software systems to tackle unique client challenges.
-      - Designed and implemented software solutions that effectively addressed intricate business challenges.
+      name: ConcertAI
+      location: Bangalore, India
+    from: "2023 April"
+    to: "Now"
+    projects:
+      - task: LLM-Based Concomitant Drug Eligibility System
+        description:
+          - Developed a large language model pipeline to determine the eligibility of concomitant drugs.
+          - The project involved integrating data from the FDA Orange Book and Drugs.com.
+          - Relevant information of the drugs were evaluated using the inclusion and exclusion eligibility criteria.
+          - The pipeline achieves F1-score greater than 90%.
+        tool_used: Amazon Bedrock, LLAMA3, RAG, Web Scrapping
+      - task: Near-Deduplication of Texts in Patient Journey
+        description:
+          - Deduplicating text leads faster inference at the same time leads the inference cost saving.
+          - It remove duplicate predictions in down stream task.
+          - Used Minhash with LSH to find near duplicates.
+          - Deduplication of training data leads to much better generalization. And this is one of the important step in training bigger LLMs.
+        tool_used: Datasketch, RapidFuzz
+      - task: Cancer Treatment Response Detection
+        description:
+          - Developed an aspect-level transformer model to detect tumor response in cancer patients following treatment
+        tool_used: Transformers, BERT, Regex
+      - task: NLP-Assisted Curation Microservice
+        description:
+          - Created a microservice for post-processing outputs from Named Entity Recognition (NER), classification, and relation extraction models.
+          - Handled entity linking and implemented event based post processing rules for 17 events from curation handbook.
+          - Created bounding box around the evidences in PDF for NLP assisted curation.
+        tool_used: RabbitMQ, FastAPI, Pydantic, DuckDB
+      - task: Document Type Classification Enhancement
+        description:
+          - Retrained document type classifier to improve accuracy of a pre-existing model
+          - Implemented a custom tokenizer trained on clinical data
+          - Employed support vector machine for document classification
+        tool_used: Huggingface tokenizer, TFIDF, Sklearn
 
-    from: "2022 Jan."
-    to: "2022 Dec."
-    tags:
-      - Data Analysis
-      - Data Visualization
-      - Report Generation
-  - position: Software Engineer
-    company:
-      name: Netflix
-      link: https://codewizards.com/
-    description:
-      - Designed and developed software solutions for clients.
-      - Implemented best coding practices and maintained code quality.
-      - Collaborated with a global development team on multiple projects.
-      - Engineered and delivered customized software solutions for clients' specific needs.
-      - Implemented coding best practices to uphold code quality and reliability.
-      - Engaged in cross-border cooperation with a global development team, contributing to multiple projects.
-
-    from: "2021 Mar."
-    to: "2021 Dec."
-    tags:
-      - Software Development
-      - Coding
-      - Collaboration
   - position: Machine Learning Engineer
     company:
-      name: AI Innovators
-      link: "https://aiinnovators.com/"
+      name: Ernst & Young
+      location: Bangalore, India
+    from: "Aug 2020"
+    to: "April 2023"
+    projects:
+      - task: Extract sector and region attacked by APT groups from their description
+        description:
+          - Extract the sector and the region which are attacked by APT groups from their description
+          - Find their origin country
+          - Train a multi label deep learning text classifier for CVEs description
+          - Worked on information extraction problem in a low resource condition
+          - Handled the problem by finetuning zero shot models like Transformer based question-answering
+          - Created labelled data and trained Question-Answering Model, Named Entity Recognition, and Zero-shot classifier models
+          - Improved multi-label classifier performance from 81% to 94% by enriching text data with categorical features
+        tool_used: Pytorch, Transformers, Label-Studio, Haystack, Pandas, Databricks
+
+      - task: Predict low occurring market event from financial data using machine learning
+        description:
+          - Worked on a prediction problem with significant class imbalance, missing data, and outliers
+          - Created a training framework for experimenting with different machine learning models such as XGBoost, Random Forest, Neural Networks, and Time Series
+          - Framework creates an ensemble model if more than one model is selected
+          - Improved data aggregation methods in SQL queries, resulting in a 50% improvement in recall
+          - Developed a web application for individual feature importance and partial dependence plots
+        tool_used: Sklearn, Steamlit, Xgboost, SHAP (Feature Explainibility), Apache Spark, SQL, Pandas
+
+      - task: Detect Table using deep learning in documents
+        description:
+          - Analysed different SOTA architecture for table detection
+          - Model based on DETR (detection transformer) performed better by 0.12 on mAP score than fast RCNN architecture
+        tool_used: Object Detection, Detection Transformer
+
+  - position: AI Engineer, Intern
+    company:
+      name: AlphaICs
+      location: Bangalore, India
+    from: "May 2019"
+    to: "July 2019"
+    projects:
+      - task: Quantization of Deep Neural Networks
+        description:
+          - Successfully improved prediction accuracy of quantized ResNet-50 from 30% to 72%, and achieved similar results with Inception-V3
+        tool_used: TensorFlow, Keras, NetworkX, Numpy, ResNet
+
+  - position: Masters Thesis / Research Project
+    company:
+      name: Department of Electrical Engineering, IISc
+      location: Bangalore, India
+    from: "Oct 2019"
+    to: "May 2020"
+    projects:
+      - task: Domain Adaptation of Zero Shot Sketch to Image Retrieval Model using Unlabelled samples.
+        description:
+          - Worked on a model which query a large database of images with hand-drawn sketches. Further extended the functionality to unseen classes.
+          - Developed a method to adapt a trained model to a new domain with unlabelled samples only. 
+        tool_used: Pytorch, Unsupervised ML, Computer Vision
+
+open_source:
+  - task: PDF2MD
     description:
-      - Built and trained machine learning models for various applications.
-      - Deployed AI solutions in real-world scenarios.
-      - Created custom software solutions tailored to meet client requirements.
-      - Enforced coding best practices to ensure high code quality and maintainability.
-      - Worked closely with a diverse, multinational development team on various concurrent projects.
-      - Crafted software applications with a strong focus on client needs and user experience.
-      - Collaborated with an international development workforce, fostering innovation and teamwork.
-      - Engineered software solutions that addressed complex business problems effectively.
-    from: "2020 Jun."
-    to: "2020 Dec."
-    tags:
-      - Machine Learning
-      - AI Solutions
-      - Research
+      - PDF documents have very little underlying structure. Making it very hard to create a PDF parser
+      - Developed a table and cell detection algorithm using OpenCV for a bounded Table. The algorithm beats current deep learning methods
+      - Worked on identifying list elements, header, footer, and footnotes in documents
+      - Developed an algorithm to properly identify headings and paragraphs
+    tool_used: OpenCV, PyMuPDF, PDFMiner, DBScan, SQL
 
-education:
-  - place:
-      name: Constructor University Bremen
-      link: "https://constructor.university/"
-    degree: "M.Sc."
-    major:
-      Computer Science
-    track:
-      Artificial Intelligence
-    from: "2018"
-    to: "2020"
-  - place:
-      name: Innopolis University
-      link: "https://innopolis.university/en/"
-    degree: "B.Sc."
-    major:
-      Data Science
-    track: Technical Leadership
-    from: "2015"
-    to: "2018"
 
-hackathons:
-  - hackathon:
-      name: Tech Innovators Hackathon
-      link: "https://techinnovatorshackathon.com/"
-    certificate_link: "https://techinnovatorshackathon.com/certificates/johndoe"
-    description: >
-      Developed an innovative data analysis tool that improved data processing and insights generation for businesses.
-    year: 2023
-    from: "Feb. 1"
-    to: "Feb. 7"
+
+
+soft_skills:
+  - Proven ability to work effectively in global teams
+  - Communicate ML/AI model results with business stakeholders effectively
+  - Proficiency in Agile methodologies, with experience working in Scrum
+  - Creative thinking and innovation in developing AI/ML solution
+  - Attention to detail, especially in data processing and verification
+  - Expertise in modeling complex business problems and developing scalable algorithmic solutions for technology products
+  - Demonstrated ability to take full ownership of projects
